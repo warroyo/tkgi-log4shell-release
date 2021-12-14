@@ -16,6 +16,8 @@ addons:
       jobs:
       - name: pks-api
         release: pks-api
+      - name: uaa
+        release: pks-api
 
       stemcell:
       - os: ubuntu-xenial
