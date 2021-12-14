@@ -28,5 +28,5 @@ bosh upload-release ./dev_releases/tkgi-log4shell/tkgi-log4shell-0+dev.1.yml
 4. Configure the addon from this repo
 ```
 
-bosh -n update-config --name=tkgi-log4shell --type=runtime ./addon-example.yml
+bosh -n update-config --name=tkgi-log4shell --type=runtime ./addon.yml
 ```
