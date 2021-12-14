@@ -6,6 +6,6 @@ name: tkgi-log4shell
 packages:
 
 templates:
-  bin/run: bin/run
+  bin/pre-start: bin/pre-start
 
 properties: {}
