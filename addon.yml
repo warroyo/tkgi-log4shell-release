@@ -1,0 +1,21 @@
+---
+name: tkgi-log4shell
+
+releases:
+- name: tkgi-log4shell
+  version: 0+dev.1
+
+addons:
+  - name: tkgi-log4shell
+    jobs:
+    - name: cve-2021-44228-fix
+      release: tkgi-log4shell
+      properties:
+
+    include: 
+      jobs:
+      - name: pks-api
+        release: pks-api
+
+      stemcell:
+      - os: ubuntu-xenial

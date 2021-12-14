@@ -1,0 +1,11 @@
+  
+---
+
+name: tkgi-log4shell
+
+packages:
+
+templates:
+  bin/run: bin/run
+
+properties: {}
