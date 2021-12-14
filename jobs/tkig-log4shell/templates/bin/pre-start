@@ -1,0 +1,33 @@
+#!/bin/bash
+ 
+set -u -o pipefail
+ 
+# Update script for UAA
+file=/var/vcap/jobs/uaa/bin/uaa
+ 
+grep -q '^JAVA_OPTS="$JAVA_OPTS -Dlog4j2.formatMsgNoLookups=true"' "${file}"
+status=$?
+ 
+if [ "$status" -gt 1 ]; then
+  echo grep error 1>&2
+  exit 1
+fi
+ 
+if [ "$status" -eq 1 ]; then
+  set -e
+  new="$(set -euo pipefail; awk '/JAVA_OPTS="[^$].*$/{print;print "JAVA_OPTS=\"$JAVA_OPTS -Dlog4j2.formatMsgNoLookups=true\"";next}1' ${file})"
+ 
+  if [ "$?" -ne 0 ]; then
+    echo awk error 1>&2
+    exit 1
+  fi
+ 
+  echo "$new" > "$file"
+fi
+ 
+# Update script for pks-api
+sed -i "s/java -Dspring.config.location/java -Dlog4j2.formatMsgNoLookups=true -Dspring.config.location/g" /var/vcap/jobs/pks-api/bin/pks-api-ctl.sh
+ 
+# Restart UAA and pks-api
+monit restart uaa
+monit restart pks-api
