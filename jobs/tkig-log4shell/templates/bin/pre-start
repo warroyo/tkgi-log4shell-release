@@ -28,6 +28,3 @@ fi
 # Update script for pks-api
 sed -i "s/java -Dspring.config.location/java -Dlog4j2.formatMsgNoLookups=true -Dspring.config.location/g" /var/vcap/jobs/pks-api/bin/pks-api-ctl.sh
  
-# Restart UAA and pks-api
-monit restart uaa
-monit restart pks-api
