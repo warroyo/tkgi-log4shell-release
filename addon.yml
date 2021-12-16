@@ -10,7 +10,6 @@ addons:
     jobs:
     - name: cve-2021-44228-fix
       release: tkgi-log4shell
-      properties:
 
     include: 
       jobs:
