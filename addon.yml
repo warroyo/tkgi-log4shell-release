@@ -8,7 +8,7 @@ releases:
 addons:
   - name: tkgi-log4shell
     jobs:
-    - name: cve-2021-44228-fix
+    - name: tkgi-log4shell
       release: tkgi-log4shell
 
     include: 
