@@ -30,3 +30,5 @@ bosh upload-release ./dev_releases/tkgi-log4shell/tkgi-log4shell-0+dev.1.yml
 
 bosh -n update-config --name=tkgi-log4shell --type=runtime ./addon.yml
 ```
+
+5. login to opsman and run and apply
